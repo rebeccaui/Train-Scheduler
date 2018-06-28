@@ -1,1 +1,44 @@
+.jumbotron {
+    background-color: rgb(61, 199, 204);
+    border: 2px solid rgb(61, 199, 204);
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(61, 199, 204);
+
+}
+
+caption {
+    background: rgb(61, 199, 204);
+    color: white;
+    text-align: left;
+    padding: 0 10px;
+}
+
+thead {
+    color: black;
+    text-align: center;
+}
+
+tbody tr {
+    color: rgb(129, 120, 120);
+}
+
+tbody tr:hover {
+    background: rgb(241, 131, 41);
+    color: black;
+}
+
+.form {
+    padding: 10px 10px;
+    border: 2px solid rgb(61, 199, 204);
+}
+
+.btn {
+    background-color: rgb(61, 199, 204);
+    color: white;
+}
+
 
