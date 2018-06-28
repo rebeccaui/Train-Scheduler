@@ -26,6 +26,7 @@ var trainMins = "";  //Displayed/Decremented Number of minutes til next train.
             //Starts from difference 
 var difference = ""; //Equivalent to trainFreq, 
 var trainTimeConverted = "";
+var remainder = "";
 
 //var trainMins = "..." //moment(). trainTime + trainFreq
 
@@ -42,17 +43,8 @@ var trainTimeConverted = "";
         console.log("Train Destination: " + trainDest);
         console.log("Starting Train Time: " + trainTime);
         console.log("Train Frequency: " + trainFreq + " mins");
-        //console.log("Minutes until next Train: " + trainMins);
-       trainMins = trainFreq;
-       console.log("Minutes Away (decrementing): " + trainMins);
-       //The difference of trainTime and currentTime
-       difference = moment().diff(moment(trainTime), "minutes");
-       console.log("Difference: " + difference);
-
-       trainTimeConverted = moment(trainTime, "HH:mm");
-       console.log(trainTimeConverted);
-       //difference divided by trainFreq
-       //Minutes Away will be the trainFreq - % 
+       
+       
      /*    //for (i = 0; i = trainFreq.val(); i--){
             if (difference === 0){
 
@@ -95,14 +87,28 @@ var trainTimeConverted = "";
             trainTime = trainFacts.trainTime;
             trainFreq = trainFacts.trainFreq;
 
+            //The difference of trainTime and currentTime
+       difference = moment().diff(moment(trainTime), "minutes");
+       
+       trainTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
+       //The remainder is the difference divided by the trainFreq
+       remainder = difference % trainFreq;
+       //Minutes Away will be the trainFreq minus the remainder
+       trainMins = trainFreq - remainder;
+
             var newTrain = $("<tr>").addClass("train");
             newTrain.append(
                 $("<td>").text(trainName),
                 $("<td>").text(trainDest),
                 $("<td>").addClass("freq").text(trainFreq),
-                $("<td>").addClass("nextArrival").text(trainTime)
+                $("<td>").addClass("nextArrival").text(trainMins)
             );
             $("#trainTable").append(newTrain);
+            console.log("Difference: " + difference);
+            console.log(trainTimeConverted);
+            console.log("Minutes Away (decrementing): " + trainMins);
+
+
     });
 
 });
