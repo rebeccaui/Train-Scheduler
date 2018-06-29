@@ -4,10 +4,14 @@
     color: white;
 }
 
+.clock {
+    font-size: 40px;
+    text-align: center;
+}
+
 table {
     border-collapse: collapse;
     border: 2px solid rgb(61, 199, 204);
-
 }
 
 caption {
@@ -34,6 +38,7 @@ tbody tr:hover {
 .form {
     padding: 10px 10px;
     border: 2px solid rgb(61, 199, 204);
+    margin-bottom: 30px;
 }
 
 .btn {

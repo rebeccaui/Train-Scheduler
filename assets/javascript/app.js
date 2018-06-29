@@ -30,6 +30,10 @@ var difference = ""; //The difference between the currentTime and trainTime, not
 var trainTimeConverted = ""; //
 var remainder = ""; //The remainder from which we find the remaining trainMins until nextArrival
 
+setInterval (function() {
+    $(".clock").html(moment().format("<b>hh:mm:ss A</b>"))
+}, 1000);
+
     //Add Train event
     $("#addTrain").click(function(event){
         event.preventDefault();
@@ -40,12 +44,6 @@ var remainder = ""; //The remainder from which we find the remaining trainMins u
         trainFreq = $("#userFreq").val().trim();    
 
     if(trainName != "" && trainDest != "" && trainTime != "" && trainFreq != "") {
-        console.log("Train Name: " + trainName);
-        console.log("Train Destination: " + trainDest);
-        console.log("Train Frequency: " + trainFreq + " mins");
-        console.log("Starting Train Time: " + trainTime);
-        console.log("Next Arrival: " + nextArrival);
-
         //Change the input values back to an empty string
         $("#userTrain").val("");
         $("#userDest").val("");
@@ -81,16 +79,6 @@ var remainder = ""; //The remainder from which we find the remaining trainMins u
             //Minutes Away until nextArrival will be trainFreq minus the remainder
             trainMins = parseInt(trainFacts.trainFreq) - remainder;  //required for display
             
-            //nextArrival = trainFacts.nextArrival;
-            //nextArrivalConverted = nextArrivalConverted;   //required for display
-
-
-            //Convert the trainTime to a certain format and subtract a year
-            //trainTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
-            
-            //Convert the nextArrival time to the standard format
-            //nextArrivalConverted = moment(nextArrival).format("HH:mm");
-            
             if(difference > 0) {
             //The nextArrival will be equal to the currentTime plus the trainMins
             nextArrival = moment().add(trainMins, "minutes").format("hh:mm A");
@@ -112,13 +100,11 @@ var remainder = ""; //The remainder from which we find the remaining trainMins u
 });
 
 
-/* (".table").attr("sortable");
+/* USEFUL LOGS - USE LATER WHEN UPDATING TIME ON HTML EVERY MINUTE
+console.log("Train Name: " + trainName);
+console.log("Train Destination: " + trainDest);
+console.log("Train Frequency: " + trainFreq + " mins");
+console.log("Starting Train Time: " + trainTime);
+console.log("Next Arrival: " + nextArrival);
+*/
 
-//Insert search bar for table
-/* var allRows = $("tr");
-$("input#search").on("keydown keyup", function() {
-  allRows.hide();
-  $("tr:contains('" + $(this).val() + "')").show();
-}); 
-
-// .checkvalidity() returns T/F  .reportvalidity() tells user */
