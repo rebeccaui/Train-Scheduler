@@ -1,4 +1,4 @@
-# Train-Scheduler
+# Train Scheduler
 
 This app is used for scheduling train arrival times using jQuery, Moment.js, and a Firebase realtime database. This app is useful for anyone who would like to learn about timing strategies in Moment.js that update in a realtime database. 
 
